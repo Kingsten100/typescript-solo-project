@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import { ForumProvider } from './context/ForumContext'
-import ThreadList from './components/ThreadList'
+
+import ThreadListPage from './pages/ThreadListPage'
+import ThreadDetailPage from './pages/ThreadDetailPage';
+import Layout from './components/Layout.tsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 
@@ -10,7 +14,15 @@ function App() {
 
   return (
     <ForumProvider>
-      <ThreadList />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<ThreadListPage />}/>
+            <Route path='/threads/:id' element={<ThreadDetailPage />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+     
     </ForumProvider>
   )
 }
