@@ -1,15 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { ForumProvider } from './context/ForumContext'
+import ThreadList from './components/ThreadList'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      Hallojsan allihopa
-    </>
+    <ForumProvider>
+      <ThreadList />
+    </ForumProvider>
   )
 }
 
