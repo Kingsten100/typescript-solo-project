@@ -66,3 +66,60 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ==== START ==== CSS för ThreadCard och ThreadList */
+
+.thread-card{
+  width: 900px;
+}
+
+.thread-info{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  
+}
+.tag{
+  border: #8DC7D9;
+  padding: 0rem 1rem;
+  border-radius: 1rem;
+  background-color: #8DC7D9;
+}
+
+.thread-border{
+  border: none;
+  background-color: #8DC7D9;
+  height: 2px;
+  margin: 2rem 0;
+}
+
+.thread-body-text{
+  text-align: start;
+}
+
+.thread-title{
+  text-align: start;
+}
+
+.comments-count{
+  display: inline-flex;
+  max-height: 2rem;
+  border: #8DC7D9;
+  padding: 0rem 1rem;
+  border-radius: 1rem;
+  background-color: #8DC7D9;
+  padding: 0rem 1rem;
+}
+
+.comments-info{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  
+}
+
+.fake-thread-card{
+  width: 900px;
+  background-color: lightgray;
+}
+/* ==== SLUT ==== CSS för ThreadCard och ThreadList */

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import type { Thread, Comment } from "../types/types";
 import { saveToStorage, loadFromStorage } from "../utils/storage";
 
+
 type ForumContextType = {
   threads: Thread[];
   addThread: (thread: Thread) => void;
