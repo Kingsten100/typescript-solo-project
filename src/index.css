@@ -181,3 +181,63 @@
   font-weight: 400;
   text-align: center;
 }
+
+//* Styling for ThreadForm *//
+.thread-form-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9fafb;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.thread-form-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.thread-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.thread-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.thread-form input,
+.thread-form select,
+.thread-form textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.thread-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  background: #189ab4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 2rem;
+  transition: background 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  background: #05445e;
+}

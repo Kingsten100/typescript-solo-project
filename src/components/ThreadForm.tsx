@@ -24,9 +24,9 @@ const ThreadForm = () => {
       category,
       creationDate: new Date().toISOString(),
       creator: {
-        id: crypto.randomUUID(), // ändrat till string-ID
+        id: crypto.randomUUID(),
         username: author,
-        email: "", // placeholder tills vidare
+        email: "",
       },
       comments: [],
     };
@@ -46,7 +46,6 @@ const ThreadForm = () => {
       addThread(newThread);
     }
 
-    // reset
     setTitle("");
     setAuthor("");
     setContent("");
@@ -56,10 +55,10 @@ const ThreadForm = () => {
   };
 
   return (
-    <div className="thread-form">
-      <h2>Skapa ny tråd</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="thread-form-container">
+      <h2 className="thread-form-title">Skapa ny tråd</h2>
+      <form className="thread-form" onSubmit={handleSubmit}>
+        <div className="form-group">
           <label htmlFor="title">Titel</label>
           <input
             id="title"
@@ -70,7 +69,7 @@ const ThreadForm = () => {
           />
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="author">Författare</label>
           <input
             id="author"
@@ -81,7 +80,7 @@ const ThreadForm = () => {
           />
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="category">Kategori</label>
           <select
             id="category"
@@ -93,7 +92,7 @@ const ThreadForm = () => {
           </select>
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="content">Innehåll</label>
           <textarea
             id="content"
@@ -103,7 +102,9 @@ const ThreadForm = () => {
           />
         </div>
 
-        <button type="submit">Skapa tråd</button>
+        <button className="submit-button" type="submit">
+          Skapa tråd
+        </button>
       </form>
     </div>
   );
