@@ -16,7 +16,7 @@ const ThreadCard = ({ thread }: ThreadCardProps) => {
       <div className='thread-card'>
         <div className='thread-info'>
           <p>User 1{thread.creator.username}</p> 
-          <p>{Math.floor(Math.random()*60)} min</p>
+          <p>{thread.creationDate}</p>
           <div className='tag'><span>{thread.category}</span></div>
         </div>
         <div className='thread-title'>
