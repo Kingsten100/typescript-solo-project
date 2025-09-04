@@ -31,7 +31,7 @@ const Navbar = () => {
                   
                   <ul>
                     <li >
-                      <Link className='dropdown-link-text' to='/myThreads'>Mina trådar</Link>
+                      <Link onClick={closeMenu} className='dropdown-link-text' to='/myThreads'>Mina trådar</Link>
                     </li>
                   </ul>
                 </div>
