@@ -1,11 +1,11 @@
 export type User = {
-  id: number;
+  id: string; // ändrat till string
   username: string;
   email: string;
 };
 
 export type Comment = {
-  id: number;
+  id: string; // ändrat till string
   threadId: string;
   author: string;
   content: string;
@@ -13,17 +13,17 @@ export type Comment = {
 };
 
 export type Thread = {
-  id: number;
+  id: string;
   title: string;
-  category: string;
+  category: "general" | "QNA"; // mer strikt typ
   content: string;
   creator: User;
   creationDate: string;
   comments: Comment[];
 };
 
-type QNAThread =  Thread & {
-	category: "QNA";
-	isAnswered: boolean;
-	commentAnswerId?: number;
-}
+export type QNAThread = Thread & {
+  category: "QNA";
+  isAnswered: boolean;
+  commentAnswerId?: string; // ändrat till string
+};

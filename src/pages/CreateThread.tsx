@@ -1,11 +1,12 @@
-import React from 'react'
+import ThreadForm from "../components/ThreadForm";
 
 const CreateThread = () => {
   return (
     <div>
-      Skapa tråd sida
+      <h1>Skapa en ny tråd</h1>
+      <ThreadForm />
     </div>
-  )
-}
+  );
+};
 
-export default CreateThread
+export default CreateThread;
