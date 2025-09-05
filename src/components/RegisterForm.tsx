@@ -1,9 +1,9 @@
-import React, { useState, type FormEvent } from 'react'
-import { useForum } from '../context/ForumContext'
+import { useState, type FormEvent } from 'react'
 import type { User } from '../types/types'
+import { useAuth } from '../context/AuthContext'
 
 const RegisterForm = () => {
-  const { createUser } = useForum()
+  const { createUser } = useAuth()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

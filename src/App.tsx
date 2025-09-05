@@ -7,32 +7,36 @@ import CreateThread from './pages/CreateThread.tsx';
 import MyThreads from './pages/MyThreads.tsx';
 import RegisterPage from './pages/RegisterPage.tsx';
 import LoginPage from './pages/LoginPage.tsx';
+import { AuthProvider } from './context/AuthContext.tsx';
 
 function App() {
 
   return (
     <ForumProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            {/* Lista alla trådar */}
-            <Route index element={<ThreadListPage />} />
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              {/* Lista alla trådar */}
+              <Route index element={<ThreadListPage />} />
 
-            {/* Visa tråd i detalj */}
-            <Route path='/threads/:id' element={<ThreadDetailPage />} />
+              {/* Visa tråd i detalj */}
+              <Route path='/threads/:id' element={<ThreadDetailPage />} />
 
-            {/* Skapa ny tråd */}
-            <Route path='/create' element={<CreateThread />} />
+              {/* Skapa ny tråd */}
+              <Route path='/create' element={<CreateThread />} />
 
-            {/* Visa mina trådar (extra funktion) */}
-            <Route path='/myThreads' element={<MyThreads />} />
+              {/* Visa mina trådar (extra funktion) */}
+              <Route path='/myThreads' element={<MyThreads />} />
 
-            <Route path='/register' element={<RegisterPage />}/>
+              <Route path='/register' element={<RegisterPage />}/>
 
-            <Route path='/login' element={<LoginPage />}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route path='/login' element={<LoginPage />}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+
+      </AuthProvider>
     </ForumProvider>
   )
 }
