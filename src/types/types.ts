@@ -2,6 +2,7 @@ export type User = {
   id: string; // ändrat till string
   username: string;
   email: string;
+  password: string;
 };
 
 export type Comment = {

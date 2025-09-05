@@ -5,6 +5,8 @@ import Layout from './components/Layout.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateThread from './pages/CreateThread.tsx';
 import MyThreads from './pages/MyThreads.tsx';
+import RegisterPage from './pages/RegisterPage.tsx';
+import LoginPage from './pages/LoginPage.tsx';
 
 function App() {
 
@@ -24,6 +26,10 @@ function App() {
 
             {/* Visa mina trådar (extra funktion) */}
             <Route path='/myThreads' element={<MyThreads />} />
+
+            <Route path='/register' element={<RegisterPage />}/>
+
+            <Route path='/login' element={<LoginPage />}/>
           </Route>
         </Routes>
       </BrowserRouter>
