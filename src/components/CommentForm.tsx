@@ -39,9 +39,9 @@ const CommentForm = () => {
           <input placeholder='Ditt namn...' className='input' type="text" id='comment-author' value={commentAuthor} onChange={(e) => setCommentAuthor(e.target.value)} required/>
         </div>
         <div className='comment-form-input'>
-        <input placeholder='Vad vill du dela med dig?' className='input' type="text" id='comment' value={content} onChange={(e) => setContent(e.target.value)} required/>
+        <textarea placeholder='Vad vill du dela med dig?' className='input comment-textbox' id='comment' value={content} onChange={(e) => setContent(e.target.value)} required/>
         </div>
-        <button className='submit-button' type='submit'>Kommentera</button>
+        <button className='comment-submit-btn' type='submit'>Kommentera</button>
       </form>
       
     </div>

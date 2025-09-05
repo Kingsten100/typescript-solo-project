@@ -267,3 +267,31 @@
 .comment-li{
   list-style: none;
 }
+
+.comment-textbox{
+  height: 100px;
+  border: 1px solid #8DC7D9;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-block: 2rem;
+}
+
+.main-container{
+  padding: 2rem;
+}
+
+.comment-submit-btn{
+  background: #189ab4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.comment-submit-button:hover {
+  background: #05445e;
+}
