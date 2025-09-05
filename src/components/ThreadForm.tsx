@@ -22,7 +22,7 @@ const ThreadForm = () => {
       title,
       content,
       category,
-      creationDate: new Date().toISOString(),
+      creationDate: new Date().toISOString().split('T')[0],
       creator: {
         id: crypto.randomUUID(),
         username: author,

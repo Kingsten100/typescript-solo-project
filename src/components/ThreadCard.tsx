@@ -15,7 +15,7 @@ const ThreadCard = ({ thread }: ThreadCardProps) => {
     <>
       <div className='thread-card'>
         <div className='thread-info'>
-          <p>User 1{thread.creator.username}</p> 
+          <p>{thread.creator.username}</p> 
           <p>{thread.creationDate}</p>
           <div className='tag'><span>{thread.category}</span></div>
         </div>
