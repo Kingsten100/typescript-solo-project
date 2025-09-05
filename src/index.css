@@ -78,8 +78,9 @@
 /* ==== SLUT ==== CSS för ThreadCard och ThreadList */
 
 .layout-container{
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  /* display: grid;
+  grid-template-columns: auto 1fr; */
 }
 
 .sidebar-container{
@@ -102,7 +103,7 @@
 }
 
 .sidebar-container{
-  height: 1000px;
+ 
 }
 
 .side-divider{

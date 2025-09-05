@@ -14,11 +14,10 @@ const Layout = () => {
         <aside className="sidebar-container">
           <Sidebar />
         </aside>
-      <div>
+  
         <main className="flex-1 p-6">
           <Outlet /> 
         </main>
-      </div>
       </div>
     </>
   )
