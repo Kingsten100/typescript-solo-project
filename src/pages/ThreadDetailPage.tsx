@@ -1,13 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useForum } from '../context/ForumContext'
+import CommentForm from '../components/CommentForm'
 
 const ThreadDetailPage = () => {
 
   const { id } = useParams<{ id: string }>()
   const { getThreadById } = useForum()
 
-  const thread = getThreadById(Number(id))
+  const thread = getThreadById(String(id))
 
   if(!thread){
     return (
@@ -22,11 +23,15 @@ const ThreadDetailPage = () => {
       <p>{thread.creator.username}</p>
       <p>{thread.content}</p>
       <div>
+        <CommentForm />
+      </div>
+      <div>
         {thread.comments.length > 0 ? (
           <ul>
             {thread.comments.map((c) => (
-              <li key={c.id}>
-                <strong>{c.author}</strong> {c.content}
+              <li key={c.id} className='comment-li'>
+                <strong>{c.author}</strong> 
+                <p>{c.content}</p>
               </li>
             ))}
           </ul>
