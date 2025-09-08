@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
+  const { logout, currentUser } = useAuth()
 
   const closeMenu = () => setOpen(false)
   return (
@@ -39,7 +41,11 @@ const Navbar = () => {
               </>
             )
           }
-          <button className='navbar-btn'>Logga ut</button>
+          { currentUser ?
+            <button onClick={() => {logout()}} className='navbar-btn '>Logga ut</button>
+            :
+            <Link to='/login'className='navbar-btn login-btn'>Logga in</Link>
+          }
         </div>
       </div>
       <div className='navbar-divider'/>

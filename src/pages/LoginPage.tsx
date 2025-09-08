@@ -1,9 +1,12 @@
 import React, { useState, type FormEvent } from 'react'
 import type { User } from '../types/types';
+import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
   const [inputUsername, setUsername] = useState('')
   const [inputPassword, setPassword] = useState('')
+
+  const { login } = useAuth()
 
   const storedUsers: User[] = JSON.parse(localStorage.getItem("users") || "[]");
 
@@ -17,6 +20,8 @@ const LoginPage = () => {
 
   if(user){
     console.log('Inloggningen lyckades', user)
+    login(inputUsername, inputPassword)
+    
   } else {
     console.log('Fel Username eller password')
   }

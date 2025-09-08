@@ -4,10 +4,12 @@ import type { FormEvent } from "react";
 import { useForum } from "../context/ForumContext";
 import type { Thread, QNAThread } from "../types/types";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const ThreadForm = () => {
   const { addThread } = useForum();
   const navigate = useNavigate();
+  const { currentUser } = useAuth()
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -25,7 +27,7 @@ const ThreadForm = () => {
       creationDate: new Date().toISOString().split('T')[0],
       creator: {
         id: crypto.randomUUID(),
-        username: author,
+        username: author || currentUser?.username,
         email: "",
       },
       comments: [],
@@ -51,7 +53,7 @@ const ThreadForm = () => {
     setContent("");
     setCategory("general");
 
-    navigate("/threads");
+    navigate("/");
   };
 
   return (
@@ -68,6 +70,7 @@ const ThreadForm = () => {
             required
           />
         </div>
+        { currentUser ? null :
 
         <div className="form-group">
           <label htmlFor="author">Författare</label>
@@ -79,6 +82,7 @@ const ThreadForm = () => {
             required
           />
         </div>
+        }
 
         <div className="form-group">
           <label htmlFor="category">Kategori</label>

@@ -2,11 +2,13 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useForum } from '../context/ForumContext'
 import CommentForm from '../components/CommentForm'
+import { useAuth } from '../context/AuthContext'
 
 const ThreadDetailPage = () => {
 
   const { id } = useParams<{ id: string }>()
   const { getThreadById } = useForum()
+  const { currentUser } = useAuth()
 
   const thread = getThreadById(String(id))
 
@@ -22,10 +24,14 @@ const ThreadDetailPage = () => {
       <h2>{thread.title}</h2>
       <p>{thread.creator.username}</p>
       <p>{thread.content}</p>
-      <div>
-        <CommentForm />
-      </div>
-      <div>
+
+      { currentUser ?
+        <div>
+          <CommentForm />
+        </div>
+        : <div><p>Logga in för att delta i konversationen</p></div>
+      }
+        <div>
         {thread.comments.length > 0 ? (
           <ul>
             {thread.comments.map((c) => (

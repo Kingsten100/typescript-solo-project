@@ -78,7 +78,8 @@
 /* ==== SLUT ==== CSS för ThreadCard och ThreadList */
 
 .layout-container{
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   /* display: grid;
   grid-template-columns: auto 1fr; */
 }
@@ -127,6 +128,7 @@
   color: black;
   display: flex;
   align-items: center;
+  cursor: pointer;
   
 
 }
@@ -294,4 +296,8 @@
 
 .comment-submit-button:hover {
   background: #05445e;
+}
+
+.login-btn{
+  background-color: #8DC7D9;
 }
