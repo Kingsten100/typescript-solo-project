@@ -15,6 +15,7 @@ const ThreadForm = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState<"general" | "QNA">("general");
+  const [locked, setLocked] = useState(false)
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ const ThreadForm = () => {
         email: "",
       },
       comments: [],
+      locked,
     };
 
     if (category === "QNA") {
@@ -106,10 +108,14 @@ const ThreadForm = () => {
           />
         </div>
 
+
         <button className="submit-button" type="submit">
           Skapa tråd
         </button>
       </form>
+        
+        <button className="locked-btn" onClick={() => {setLocked(!locked)}}>{locked ? <p>Tråden är låst</p>: <p>Tråden är öppen</p>}</button>
+        
     </div>
   );
 };

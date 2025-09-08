@@ -20,33 +20,40 @@ const ThreadDetailPage = () => {
     )
   }
   return (
-    <div>
-      <h2>{thread.title}</h2>
-      <p>{thread.creator.username}</p>
-      <p>{thread.content}</p>
+  <div>
+    <h2>{thread.title}</h2>
+    <p>{thread.creator.username}</p>
+    <p>{thread.content}</p>
 
-      { currentUser ?
-        <div>
-          <CommentForm />
-        </div>
-        : <div><p>Logga in för att delta i konversationen</p></div>
-      }
-        <div>
-        {thread.comments.length > 0 ? (
-          <ul>
-            {thread.comments.map((c) => (
-              <li key={c.id} className='comment-li'>
-                <strong>{c.author}</strong> 
-                <p>{c.content}</p>
-              </li>
-            ))}
-          </ul>
-        ): (
-          <p>Inga kommentarer än</p>
-        )}
+    {thread.locked ? (
+      <p>Tråd är låst</p>
+    ) : currentUser ? (
+      <div>
+        <CommentForm />
       </div>
+    ) : (
+      <div>
+        <p>Logga in för att delta i konversationen</p>
+      </div>
+    )}
+
+    <div>
+      {thread.comments.length > 0 ? (
+        <ul>
+          {thread.comments.map((c) => (
+            <li key={c.id} className="comment-li">
+              <strong>{c.author}</strong>
+              <p>{c.content}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Inga kommentarer än</p>
+      )}
     </div>
-  )
+  </div>
+);
+
 }
 
 export default ThreadDetailPage

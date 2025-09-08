@@ -21,6 +21,7 @@ export type Thread = {
   creator: User;
   creationDate: string;
   comments: Comment[];
+  locked: boolean;
 };
 
 export type QNAThread = Thread & {
