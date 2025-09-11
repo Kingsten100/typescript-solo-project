@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import type { Thread, Comment, User } from "../types/types";
+import type { Thread, Comment, User, QNAThread } from "../types/types";
 import { saveToStorage, loadFromStorage } from "../utils/storage";
 
 type ForumContextType = {
@@ -7,6 +7,8 @@ type ForumContextType = {
   addThread: (thread: Thread) => void;
   addComment: (threadId: string, comment: Comment) => void; // ändrat till string
   getThreadById: (id: string) => Thread | undefined;
+  markCommentAsAnswer: (threadId: string, commentId: string) => void
+  editThread: (updatedThread: Thread) => void
 };
 
 const ForumContext = createContext<ForumContextType | undefined>(undefined);
@@ -22,6 +24,25 @@ export const ForumProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     saveToStorage("threads", threads);
   }, [threads]);
 
+  const markCommentAsAnswer = (threadId: string, commentId: string) => {
+    setThreads((prev) => 
+      prev.map((t) => {
+        if (t.id === threadId && t.category === 'QNA') {
+          return {
+            ...t,
+            isAnswered: true,
+            commentAnswerId: commentId,
+          } as QNAThread;
+        }
+        return t
+      })
+    )
+  }
+
+  const editThread = (updatedThread: Thread) => {
+    setThreads((prev) => 
+    prev.map((t) => (t.id === updatedThread.id ? updatedThread : t)))
+  }
  
 
   const addThread = (thread: Thread) => setThreads((prev) => [...prev, thread]);
@@ -39,7 +60,7 @@ export const ForumProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
 
   return (
-    <ForumContext.Provider value={{ threads, addThread, addComment, getThreadById }}>
+    <ForumContext.Provider value={{ threads, addThread, addComment, getThreadById, markCommentAsAnswer, editThread }}>
       {children}
     </ForumContext.Provider>
   );

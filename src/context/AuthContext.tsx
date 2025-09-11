@@ -1,9 +1,10 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import type { User } from "../types/types";
 
-interface User {
-  username: string;
-  password: string;
-}
+// interface User {
+//   username: string;
+//   password: string;
+// }
 
 interface AuthContextType {
   currentUser: User | null;
@@ -51,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   // Skapa ny användare
   const createUser = (user: User) => {
-    setUsers((prev) => [...prev, user]);
+    setUsers((prev) => [...prev, {...user, isModerator: user.isModerator ?? false}]);
   };
 
   // Logga in

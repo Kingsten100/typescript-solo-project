@@ -3,6 +3,7 @@ export type User = {
   username: string;
   email: string;
   password: string;
+  isModerator?: boolean
 };
 
 export type Comment = {

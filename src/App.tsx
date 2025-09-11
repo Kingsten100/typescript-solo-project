@@ -8,6 +8,7 @@ import MyThreads from './pages/MyThreads.tsx';
 import RegisterPage from './pages/RegisterPage.tsx';
 import LoginPage from './pages/LoginPage.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
+import EditThreadPage from './pages/EditThreadPage.tsx';
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
               <Route path='/register' element={<RegisterPage />}/>
 
               <Route path='/login' element={<LoginPage />}/>
+
+              <Route path='/threads/:id/edit' element={<EditThreadPage />}/>
             </Route>
           </Routes>
         </BrowserRouter>

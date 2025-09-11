@@ -17,7 +17,8 @@ const RegisterForm = () => {
       id: crypto.randomUUID(),
       username: username,
       email: email,
-      password: password
+      password: password,
+      isModerator: true
     }
 
     createUser(user)
