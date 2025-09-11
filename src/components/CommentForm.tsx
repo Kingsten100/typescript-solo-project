@@ -2,10 +2,12 @@ import React, { useState, type FormEvent } from 'react'
 import { useForum } from '../context/ForumContext'
 import type { Comment } from '../types/types'
 import { useParams } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const CommentForm = () => {
   const { addComment } = useForum()
   const { id } = useParams<{ id: string }>();
+  const { currentUser } = useAuth()
 
   const [content, setContent] = useState('')
   const [commentAuthor, setCommentAuthor] = useState('')
@@ -20,7 +22,7 @@ const CommentForm = () => {
     const comment: Comment = {
       id: crypto.randomUUID(),
       threadId: id,
-      author: commentAuthor,
+      author: currentUser?.username,
       content: content,
       creationDate: new Date().toISOString().split('T')[0]
     }

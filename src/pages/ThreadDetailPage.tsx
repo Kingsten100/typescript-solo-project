@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useForum } from '../context/ForumContext'
 import CommentForm from '../components/CommentForm'
@@ -11,6 +11,8 @@ const ThreadDetailPage = () => {
   const { currentUser } = useAuth()
 
   const thread = getThreadById(String(id))
+
+  const [isAnswered, setIsAnsvered] = useState(false)
 
   if(!thread){
     return (
@@ -44,6 +46,8 @@ const ThreadDetailPage = () => {
             <li key={c.id} className="comment-li">
               <strong>{c.author}</strong>
               <p>{c.content}</p>
+              <input type="checkbox" />
+              
             </li>
           ))}
         </ul>

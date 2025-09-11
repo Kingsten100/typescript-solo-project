@@ -8,7 +8,7 @@ export type User = {
 export type Comment = {
   id: string; // ändrat till string
   threadId: string;
-  author: string;
+  author:  string;
   content: string;
   creationDate: string;
 };
