@@ -9,6 +9,7 @@ export type User = {
 export type Comment = {
   id: string; // ändrat till string
   threadId: string;
+  parentCommentId?: string;
   author?:  string;
   content: string;
   creationDate: string;
