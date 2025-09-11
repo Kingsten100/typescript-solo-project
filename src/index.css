@@ -242,7 +242,7 @@
 }
 
 .submit-button:hover {
-  background: #05445e;
+  background: #8DC7D9;
 }
 
 /* ==== START ==== CommentForm */
@@ -271,7 +271,6 @@
 }
 
 .comment-textbox{
-  height: 100px;
   border: 1px solid #8DC7D9;
   border-radius: 1rem;
   padding-left: 1rem;
@@ -292,10 +291,11 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  margin-top: 1rem;
 }
 
-.comment-submit-button:hover {
-  background: #05445e;
+.comment-submit-btn:hover {
+  background: #8DC7D9;
 }
 
 .login-btn{
@@ -314,4 +314,108 @@
   width: 150px;
   margin-top: 1rem;
   margin-left: 2rem;
+}
+
+.detail-thread-container{
+  border-radius: 0.5rem;
+  padding: 1rem;
+  
+}
+
+.detail-thread-title{
+  padding-bottom: 1rem;
+}
+
+.detail-thread-content{
+  margin-bottom: 3rem;
+}
+
+.thread-details{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mb-1{
+  margin-bottom: 1rem;
+}
+
+.chat-plane{
+  display: flex;
+  gap: 1rem;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.arrow-left{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-title {
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.sidebar-nav,
+.sidebar-categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #f0f8fa;
+  color: #8DC7D9;
+}
+
+.category-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.category-item:hover {
+  background-color: #f0f8fa;
+  color: #333;
 }

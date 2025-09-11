@@ -36,12 +36,11 @@ const CommentForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className='comment-form-container'>
-        <div className='comment-form-input'>
-          <input placeholder='Ditt namn...' className='input' type="text" id='comment-author' value={commentAuthor} onChange={(e) => setCommentAuthor(e.target.value)} required/>
-        </div>
-        <div className='comment-form-input'>
-        <textarea placeholder='Vad vill du dela med dig?' className='input comment-textbox' id='comment' value={content} onChange={(e) => setContent(e.target.value)} required/>
+      <form onSubmit={handleSubmit} >
+        <div className='comment-form-container'>
+          <div className='comment-form-input'>
+          <textarea placeholder='Vad vill du dela med dig?' className='input comment-textbox' id='comment' value={content} onChange={(e) => setContent(e.target.value)} required/>
+          </div>
         </div>
         <button className='comment-submit-btn' type='submit'>Kommentera</button>
       </form>
@@ -51,3 +50,4 @@ const CommentForm = () => {
 }
 
 export default CommentForm
+

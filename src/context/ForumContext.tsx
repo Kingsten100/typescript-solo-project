@@ -9,6 +9,7 @@ type ForumContextType = {
   getThreadById: (id: string) => Thread | undefined;
   markCommentAsAnswer: (threadId: string, commentId: string) => void
   editThread: (updatedThread: Thread) => void
+  addReply: (threadId: string, parentCommentId: string, reply: Comment) => void;
 };
 
 const ForumContext = createContext<ForumContextType | undefined>(undefined);
@@ -43,6 +44,8 @@ export const ForumProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setThreads((prev) => 
     prev.map((t) => (t.id === updatedThread.id ? updatedThread : t)))
   }
+
+  
  
 
   const addThread = (thread: Thread) => setThreads((prev) => [...prev, thread]);
@@ -55,12 +58,37 @@ export const ForumProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     );
   };
 
+  const addReply = (threadId: string, parentCommentId: string, reply: Comment) => {
+    const addReplyToComment = (comments: Comment[]): Comment[] => {
+      return comments.map(comment => {
+        if (comment.id === parentCommentId) {
+          return {
+            ...comment,
+            replies: [...(comment.replies || []), { ...reply, replies: [] }]
+          };
+        } else if (comment.replies && comment.replies.length > 0) {
+          return {
+            ...comment,
+            replies: addReplyToComment(comment.replies)
+          };
+        }
+        return comment;
+      });
+    };
+
+    setThreads((prev) =>
+      prev.map((t) =>
+        t.id === threadId ? { ...t, comments: addReplyToComment(t.comments) } : t
+      )
+    );
+  };
+
   const getThreadById = (id: string) => threads.find((t) => t.id === id);
 
 
 
   return (
-    <ForumContext.Provider value={{ threads, addThread, addComment, getThreadById, markCommentAsAnswer, editThread }}>
+    <ForumContext.Provider value={{ threads, addThread, addComment, getThreadById, markCommentAsAnswer, editThread, addReply }}>
       {children}
     </ForumContext.Provider>
   );
