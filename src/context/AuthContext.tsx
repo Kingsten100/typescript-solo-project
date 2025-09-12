@@ -7,7 +7,7 @@ import type { User } from "../types/types";
 // }
 
 interface AuthContextType {
-  currentUser: User | null;
+  currentUser: User | null ;
   login: (username: string, password: string) => boolean;
   logout: () => void;
   users: User[];

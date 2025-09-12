@@ -20,6 +20,10 @@ const ThreadForm = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    if(!currentUser) {
+      return alert("You have to be logged in to create thread")
+    }
+
     const baseThread = {
       id: crypto.randomUUID(),
       title,
@@ -28,8 +32,9 @@ const ThreadForm = () => {
       creationDate: new Date().toISOString().split('T')[0],
       creator: {
         id: crypto.randomUUID(),
-        username: author || currentUser?.username,
+        username: currentUser.username,
         email: "",
+        password: '',
       },
       comments: [],
       locked,
