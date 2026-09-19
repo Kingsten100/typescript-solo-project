@@ -1,7 +1,7 @@
-import React, { useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import type { User } from '../types/types';
 import { useAuth } from '../context/AuthContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [inputUsername, setUsername] = useState('')

@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import { useForum } from '../context/ForumContext'
 import type { Comment } from '../types/types'
 import { useParams } from 'react-router-dom'
@@ -10,7 +10,7 @@ const CommentForm = () => {
   const { currentUser } = useAuth()
 
   const [content, setContent] = useState('')
-  const [commentAuthor, setCommentAuthor] = useState('')
+  
   
   if(!id) {
     return <p>Inget id hittades</p>
@@ -27,8 +27,6 @@ const CommentForm = () => {
       creationDate: new Date().toISOString().split('T')[0]
     }
     addComment(id, comment)
-
-    setCommentAuthor('')
     setContent('')
 
   }

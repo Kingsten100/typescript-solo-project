@@ -1,4 +1,3 @@
-import React from 'react'
 
 import ThreadCard from './ThreadCard'
 import { useForum } from '../context/ForumContext'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import type { Thread } from '../types/types'
 import { Link } from 'react-router-dom'
 

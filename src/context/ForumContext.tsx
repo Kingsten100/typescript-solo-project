@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import type { Thread, Comment, User, QNAThread } from "../types/types";
+import type { Thread, Comment, QNAThread } from "../types/types";
 import { saveToStorage, loadFromStorage } from "../utils/storage";
 
 type ForumContextType = {

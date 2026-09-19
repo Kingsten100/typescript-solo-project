@@ -1,4 +1,4 @@
-import React from 'react'
+
 import EditThread from '../components/EditThread'
 
 const EditThreadPage = () => {
