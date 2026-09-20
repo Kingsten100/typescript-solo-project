@@ -48,6 +48,7 @@
 
 .thread-body-text{
   text-align: start;
+  padding-bottom: 1rem;
 }
 
 .thread-title{
@@ -73,7 +74,7 @@
 
 .fake-thread-card{
   width: 900px;
-  margin-block: 1rem;
+
 }
 /* ==== SLUT ==== CSS för ThreadCard och ThreadList */
 
